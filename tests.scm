@@ -6,6 +6,31 @@
   
   (define test-list
     '(
+
+
+      ;question 2a
+      (sum-with-currying "let curr-sum = proc(x) proc(y) -(x,-(0,y)) in ((curr-sum 3) 4)" 7)
+
+      ;qustion 2b
+      ;the value of the program is a number multiplied by four
+      (mult-by-four "let makemult = proc(maker)
+                        proc (x)
+                          if zero?(x)
+                          then 0
+                          else -(((maker maker) -(x,1)),-4)
+         in let times4 = proc (x)((makemult makemult)x)
+            in (times4 3)" 12)
+
+      ;question 2c
+      ;returns now sum
+      (run "let makemult = proc(maker)
+                        proc (x)
+                          if zero?(x)
+                          then 0
+                          else -(((maker maker) -(x,1)),-(0,x))
+         in let times4 = proc (x)((makemult makemult)x)
+            in (times4 5)")
+      
   
       ;; simple arithmetic
       (positive-const "11" 11)
